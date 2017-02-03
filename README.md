@@ -34,6 +34,14 @@ Also, some information int the shape of numbers is expected.
 
 ws2821b are 5V powered and consume around 60mA when in full brightness (white). Thus, having a total of 19 leds will get a maximum of 1.14A that should be enough for a 5v, 1A USB charger.
 
+
+jspdf 
+pdfkit.org
+canvassvg
+https://jsfiddle.net/issalig/w3oorhne/
+
+MISC CODE FOR HSV
+
 local NUM_LEDS = 5;
 local i = 1;
 local d = 1;
