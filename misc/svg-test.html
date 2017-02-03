@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>SVG Generator</title>
+    <style type="text/css">
+      figure {
+        width: 45%;
+        float: right;
+      }
+      #output-pic {
+        border: thin solid green;
+        cursor: pointer;
+      }
+      form {
+        width: 45%;
+        float: left;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        document.getElementById("input-box").oninput = update_text;
+        document.getElementById("output-pic").onclick = show_svg;
+        update_text();
+      }
+      function update_text() {
+        var input_elem = document.getElementById("input-box");
+        var output_elem = document.getElementById("changeable-text");
+        output_elem.textContent = input_elem.value;
+      }
+      function show_svg() {
+        var svg_win = window.open("", "svg_win");
+        var embedded_svg = document.getElementById("output-pic");
+        var transplanted_svg = svg_win.document.importNode(embedded_svg, true);
+        var blank_root = svg_win.document.documentElement;
+        svg_win.document.removeChild(blank_root);
+        svg_win.document.appendChild(transplanted_svg);
+      }
+    </script>
+  </head>
+  <body>
+    <figure role="img" aria-labelledby="preview-caption">
+      <figcaption id="preview-caption">Preview <small>(click for full
+        size)</small></figcaption>
+      <svg id="output-pic"
+           xmlns="http://www.w3.org/2000/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           version="1.1" width="640px" height="480px"
+           viewBox="0 0 640 480" preserveAspectRatio="xMinYMin">
+        <title>A test SVG file</title>
+        <defs>
+          <style type="text/css">
+            text {
+              font-family: serif;
+              stroke: none;
+              fill: red;
+            }
+            .underline {
+              stroke: blue;
+              stroke-width: 1;
+              fill: none;
+              marker-mid: url(#arrow);
+            }
+          </style>
+          <marker id="arrow"
+                  viewBox="-3 -3 6 6" orient="auto"
+                  markerUnits="strokeWidth"
+                  refX="0" refY="0"
+                  markerWidth="6" markerHeight="6">
+            <path d="M0,0 -3,-3 3,0 -3,3 Z"/>
+          </marker>
+        </defs>
+        <text id="changeable-text" text-anchor="middle" font-size="40"
+              x="320" y="240"></text>
+        <path class="underline" d="M10,250 h310 310"/>
+      </svg>
+    </figure>
+    <form>
+      <label>Text: <input id="input-box"/></label>
+    </form>
+  </body>
+</html>
