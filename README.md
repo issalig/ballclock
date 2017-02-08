@@ -38,6 +38,10 @@ Plan generator
 https://jsfiddle.net/issalig/w3oorhne/
 http://codepen.io/issalig/pen/wgxGaw
 
+Matrix example and NTP
+https://hackaday.io/project/19773-esp8266-based-neopixel-dashboard
+https://github.com/PaulStoffregen/Time/blob/master/examples/TimeNTP_ESP8266WiFi/TimeNTP_ESP8266WiFi.ino
+
 MISC CODE FOR HSV
 
 local NUM_LEDS = 5;
